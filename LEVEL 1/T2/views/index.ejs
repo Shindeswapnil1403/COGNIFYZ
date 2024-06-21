@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Nike - Sign In</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-section">
+        <img src="/nike-logo.jpg" alt="Nike Logo" class="logo">
+        <h1>YOUR ACCOUNT FOR EVERYTHING NIKE</h1>
+        <p>Already a member? <a href="https://accounts.nike.com/lookup?client_id=4fd2d5e7db76e0f85a6bb56721bd51df&redirect_uri=https://www.nike.com/auth/login&response_type=code&scope=openid%20nike.digital%20profile%20email%20phone%20flow%20country&state=6b18b35d7459465ba7e19948f90b7d3b&code_challenge=6cVJ8GsmAWvxJzev8T3C_tIaWE5-enqMBnE2SEZGw6Y&code_challenge_method=S256">Sign in</a></p>
+      </div>
+      <div class="right-section">
+        <form action="/register" method="POST" id="registrationForm" onsubmit="return validateForm()">
+          <input type="email" id="email" name="email" placeholder="Email" required>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <input type="text" id="name" name="name" placeholder="Name" required>
+          <select id="country" name="country" required>
+            <option value="">Select Country</option>
+            <option value="india">India</option>
+            <option value="unitedkingdom">United Kingdom</option>
+            <option value="unitedstates">United States</option>
+            <option value="canada">Canada</option>
+            <option value="germany">Germany</option>
+            <option value="france">France</option>
+            <option value="spain">Spain</option>
+            <option value="italy">Italy</option>
+            <option value="china">China</option>
+            <option value="japan">Japan</option>
+            <option value="australia">Australia</option>
+          </select>
+          <div class="gender-selection">
+            <button type="button" class="gender-btn" value="male" onclick="selectGender('male')">Male</button>
+            <button type="button" class="gender-btn" value="female" onclick="selectGender('female')">Female</button>
+          </div>
+          <input type="hidden" id="gender" name="gender" value="">
+          <div class="terms-and-conditions">
+            <input type="checkbox" id="termsCheckbox" name="termsAccepted" required>
+            <label for="termsCheckbox">I agree to the <a href="#" onclick="showTerms()">Terms and Conditions</a></label>
+          </div>
+          <button type="submit" class="create-account-btn">CREATE ACCOUNT</button>
+        </form>
+        <div id="termsModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="hideTerms()">&times;</span>
+            <h2>Terms and Conditions</h2>
+            <p>Please read these terms and conditions carefully before using our website:</p>
+            <ul>
+              <li>By using our website, you agree to comply with and be bound by these terms.</li>
+              <li>You must provide accurate and complete information during registration.</li>
+              <li>You are responsible for maintaining the confidentiality of your account and password.</li>
+              <li>All content on this site is owned by Nike and is protected by intellectual property laws.</li>
+              <li>You may not use the site for any illegal or unauthorized purpose.</li>
+              <li>We reserve the right to terminate your account for any violation of these terms.</li>
+              <li>Your personal information will be used in accordance with our Privacy Policy.</li>
+              <li>We reserve the right to modify these terms at any time.</li>
+              <li>We do not guarantee the availability or functionality of the site at all times.</li>
+              <li>These terms are governed by and construed in accordance with the laws of the United States.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="divider">OR</div>
+        <button class="facebook-btn">REGISTER WITH FACEBOOK</button>
+      </div>
+    </div>
+    <script>
+      function selectGender(gender) {
+        document.getElementById('gender').value = gender;
+        const genderBtns = document.querySelectorAll('.gender-btn');
+        genderBtns.forEach(btn => {
+          btn.classList.remove('selected');
+        });
+        event.target.classList.add('selected');
+      }
+
+      function showTerms() {
+        const modal = document.getElementById('termsModal');
+        modal.style.display = 'block';
+      }
+
+      function hideTerms() {
+        const modal = document.getElementById('termsModal');
+        modal.style.display = 'none';
+      }
+
+      function validateForm() {
+        
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const nameInput = document.getElementById('name');
+        const countrySelect = document.getElementById('country');
+        const genderInput = document.getElementById('gender');
+        const termsCheckbox = document.getElementById('termsCheckbox');
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value)) {
+            alert('Please enter a valid email address');
+            emailInput.focus();
+            return false;
+        }
+
+        // Password validation
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};:"\\|,.<>/?]).{8,}$/;
+        if (!passwordRegex.test(passwordInput.value)) {
+            alert('Password must be at least 8 characters long and contain at least one number, one uppercase letter, one lowercase letter, and one special character');
+            passwordInput.focus();
+            return false;
+        }
+
+        // Name validation
+        if (nameInput.value.trim() === '') {
+            alert('Please enter your name');
+            nameInput.focus();
+            return false;
+        }
+
+        // Country validation
+        if (countrySelect.value === '') {
+            alert('Please select a country');
+            countrySelect.focus();
+            return false;
+        }
+
+        // Gender validation
+        if (genderInput.value === '') {
+            alert('Please select your gender');
+            return false;
+        }
+
+        // Terms and conditions validation
+        if (!termsCheckbox.checked) {
+            alert('Please agree to the terms and conditions');
+            return false;
+        }
+
+        // If all validations pass, allow form submission
+        return true;
+    }
+      
+    </script>
+  </body>
+</html>

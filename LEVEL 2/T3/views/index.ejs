@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Nike - Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<style>:root {
+    --nike-black: #000;
+    --nike-white: #fff;
+    --nike-gray: #f5f5f5;
+    --nike-orange: #ff6600;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--nike-white);
+    color: var(--nike-black);
+}
+
+/* Navbar styles */
+.navbar {
+    padding: 0.5rem 1rem;
+    font-size: 3rem;
+}
+
+.navbar-brand img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar-brand .just-do-it {
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-left: 10px;
+            color: var(--nike-black);
+        }
+.navbar-nav .nav-item .nav-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Hero Section styles */
+.hero-section {
+    
+    background-size: contain; /* Ensures the logo scales down proportionally */
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nike-black);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+}
+
+/* Form Section styles */
+.form-section {
+    background-color: var(--nike-gray);
+    padding: 3rem 0;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.btn-nike {
+    background-color: var(--nike-black);
+    color: var(--nike-white);
+    transition: all 0.3s ease;
+}
+
+.btn-nike:hover {
+    background-color: var(--nike-orange);
+}
+
+/* Benefits Section styles */
+.benefits-section {
+    padding: 3rem 0;
+}
+
+.benefit-item {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+ /* Products Section styles */
+ .products-section {
+            padding: 3rem 0;
+        }
+
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .product-card .card-body {
+            padding: 1rem;
+        }
+
+        .product-card .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .product-card .card-text {
+            color: var(--nike-black);
+        }
+
+        .product-card .btn-nike {
+            background-color: var(--nike-black);
+            color: var(--nike-white);
+            transition: all 0.3s ease;
+        }
+
+        .product-card .btn-nike:hover {
+            background-color: var(--nike-orange);
+        }
+
+/* Footer styles */
+footer {
+    background-color: var(--nike-black);
+    color: var(--nike-white);
+    padding: 2rem 0;
+}
+
+footer h5 {
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: var(--nike-white);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: var(--nike-white);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Table styles */
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th, td {
+    border: 1px solid #f8f6f6;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f6f6;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f6f6;
+}
+</style>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/nike-logo1.png" alt="Nike Logo">
+                <span class="just-do-it">JUST DO IT</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.ejs">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4">JOIN THE NIKE FAMILY</h1>
+            <p class="lead">Create your Nike Member profile and get first access to the very best of Nike products, inspiration and community.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card fade-in-up">
+                        <div class="card-body">
+                            <h2 class="card-title text-center mb-4">Create Your Account</h2>
+                            <form id="registrationForm" onsubmit="return validateForm()">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select" id="country" name="country" required>
+                                        <option value="">Select Country</option>
+                                        <option value="unitedstates">United States</option>
+                                        <option value="unitedkingdom">United Kingdom</option>
+                                        <option value="canada">Canada</option>
+                                        <!-- Add more countries as needed -->
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="btn-group w-100" role="group" aria-label="Gender selection">
+                                        <input type="radio" class="btn-check" name="gender" id="male" value="male" required>
+                                        <label class="btn btn-outline-primary" for="male">Male</label>
+                                        <input type="radio" class="btn-check" name="gender" id="female" value="female">
+                                        <label class="btn btn-outline-primary" for="female">Female</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="termsCheckbox" required>
+                                    <label class="form-check-label" for="termsCheckbox">I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a></label>
+                                </div>
+                                <button type="submit" class="btn btn-nike w-100">CREATE ACCOUNT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Member Benefits</h2>
+            <div class="row">
+                <div class="col-md-4 benefit-item fade-in-up">
+                    <div class="benefit-icon">🎉</div>
+                    <h3>Exclusive Offers</h3>
+                    <p>Get access to members-only products and discounts.</p>
+                </div>
+                <div class="col-md-4 benefit-item fade-in-up">
+                    <div class="benefit-icon">🏃‍♂️</div>
+                    <h3>Nike Run Club</h3>
+                    <p>Join our community of runners and track your progress.</p>
+                </div>
+                <div class="col-md-4 benefit-item fade-in-up">
+                    <div class="benefit-icon">📦</div>
+                    <h3>Free Shipping</h3>
+                    <p>Enjoy free standard shipping on every order.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Products</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="p1.png" class="card-img-top" alt="Product 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Nike Pegasus 41</h5>
+                            <p class="card-text">Men's Road Running Shoes</p>
+                            <a href="#" class="btn btn-nike">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="p2.png" class="card-img-top" alt="Product 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Nike Pegasus 41</h5>
+                            <p class="card-text">Women's Road Running Shoes</p>
+                            <a href="#" class="btn btn-nike">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="p3.png" class="card-img-top" alt="Product 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Nike SB Zoom Pogo Plus x Sky Brown</h5>
+                            <p class="card-text">Skate Shoes</p>
+                            <a href="#" class="btn btn-nike">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Nike</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://about.nike.com/en/newsroom" class="text-white">News</a></li>
+                        <li><a href="https://jobs.nike.com/" class="text-white">Careers</a></li>
+                        <li><a href="https://investors.nike.com/Home/default.aspx" class="text-white">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Get Help</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.nike.com/help/a/order-tracking/" class="text-white">Order Status</a></li>
+                        <li><a href="https://www.nike.com/help/a/shipping-delivery" class="text-white">Shipping and Delivery</a></li>
+                        <li><a href="https://www.nike.com/in/help/a/how-to-return-gs/order-tracking-gs" class="text-white">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/nike/"><i class="fab fa-facebook " aria-hidden="true"></i></a>
+                        <a href="https://x.com/Nike"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/nike/"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/user/NIKE"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2023 Nike, Inc. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Terms and Conditions Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Terms and conditions content -->
+                    <p>Please read these terms and conditions carefully before using our website:</p>
+                    <ul>
+                        <li>By using our website, you agree to comply with and be bound by these terms.</li>
+                        <li>You must provide accurate and complete information during registration.</li>
+                        <li>You are responsible for maintaining the confidentiality of your account and password.</li>
+                        <li>All content on this site is owned by Nike and is protected by intellectual property laws.</li>
+                        <li>You may not use the site for any illegal or unauthorized purpose.</li>
+              <li>We reserve the right to terminate your account for any violation of these terms.</li>
+              <li>Your personal information will be used in accordance with our Privacy Policy.</li>
+              <li>We reserve the right to modify these terms at any time.</li>
+              <li>We do not guarantee the availability or functionality of the site at all times.</li>
+              <li>These terms are governed by and construed in accordance with the laws of the United States.</li>
+                        <!-- Add more terms as needed -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script>
+        function validateForm() {
+            // Add your form validation logic here
+            
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const nameInput = document.getElementById('name');
+        const countrySelect = document.getElementById('country');
+        const genderInput = document.getElementById('gender');
+        const termsCheckbox = document.getElementById('termsCheckbox');
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value)) {
+            alert('Please enter a valid email address');
+            emailInput.focus();
+            return false;
+        }
+
+        // Password validation
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};:"\\|,.<>/?]).{8,}$/;
+        if (!passwordRegex.test(passwordInput.value)) {
+            alert('Password must be at least 8 characters long and contain at least one number, one uppercase letter, one lowercase letter, and one special character');
+            passwordInput.focus();
+            return false;
+        }
+
+        // Name validation
+        if (nameInput.value.trim() === '') {
+            alert('Please enter your name');
+            nameInput.focus();
+            return false;
+        }
+
+        // Country validation
+        if (countrySelect.value === '') {
+            alert('Please select a country');
+            countrySelect.focus();
+            return false;
+        }
+
+        // Gender validation
+        if (genderInput.value === '') {
+            alert('Please select your gender');
+            return false;
+        }
+
+        // Terms and conditions validation
+        if (!termsCheckbox.checked) {
+            alert('Please agree to the terms and conditions');
+            return false;
+        }
+            return true;
+        }
+    </script>
+</body>
+</html>
